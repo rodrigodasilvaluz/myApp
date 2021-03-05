@@ -1,47 +1,43 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 class App extends Component {
-  render() {
 
-    const configs = {
-      name: 'Steve Jobs',
-      img: {
-        uri: 'https://sujeitoprogramador.com/steve.png',
-      },
-      style: {
-        width: 300,
-        height: 300
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Rodrigo Luz'
     };
 
+    this.actionEnter = this.actionEnter.bind(this);
+    this.actionEnterFixed = this.actionEnterFixed.bind(this);
+  }
+
+  actionEnter() {
+    this.setState({
+      name: 'Other Name'
+    });
+  }
+
+  actionEnterFixed(name) {
+    this.setState({
+      name: name
+    });
+  }
+
+  render() {
     return (
-      <View>
-        <Text>Hello Rodrigo Luz</Text>
-        <Text>My first app</Text>
-        <Text style={{ color: 'red', fontSize: 25, margin: 15 }}>
-          System Analyst | Full Stack
+      <View style={{ marginTop: 20 }}>
+
+        <Button title="Function name" onPress={ this.actionEnter } />
+        <Button title="Fixed name" onPress={ () => this.actionEnterFixed('Fixed Name') } />
+
+        <Text style={{ fontSize: 23, color: 'red', textAlign: 'center' }}>
+          { this.state.name }
         </Text>
-
-        <Jobs configs={ configs } />
-
       </View>
     );
   };
-}
-
-class Jobs extends Component {
-  render() {
-    return (
-      <View>
-        <Image
-          source={ this.props.configs.img }
-          style={ this.props.configs.style }
-        />
-        <Text style={{ fontSize: 30 }}>{ this.props.configs.name }</Text>
-      </View>
-    );
-  }
 }
 
 export default App;
