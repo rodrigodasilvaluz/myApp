@@ -11,13 +11,12 @@ class App extends Component {
         flexDirection: 'column',
         // center, flex-end, flex-start (default), space-between e space-around
         justifyContent: 'center',
-        // center, flex-end, flex-start (default), space-between e space-around
-        alignItems: 'center',
+        // center, flex-end, flex-start (default), space-between e space-around, stretch
+        alignItems: 'stretch',
       }}>
-        <View style={{ width: 50, height: 50, backgroundColor: 'green' }}></View>
-        <View style={{ width: 50, height: 50, backgroundColor: 'red' }}></View>
-        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }}></View>
-        <View style={{ width: 50, height: 50, backgroundColor: 'blue' }}></View>
+        <View style={{ width: 100, height: 50, backgroundColor: 'green' }}></View>
+        <View style={{ height: 50, backgroundColor: 'red' }}></View>
+        <View style={{ height: 50, backgroundColor: 'yellow' }}></View>
       </View>
     );
   };
