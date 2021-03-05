@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 class App extends Component {
 
@@ -8,36 +8,31 @@ class App extends Component {
     this.state = {
       name: 'Rodrigo Luz'
     };
-
-    this.actionEnter = this.actionEnter.bind(this);
-    this.actionEnterFixed = this.actionEnterFixed.bind(this);
-  }
-
-  actionEnter() {
-    this.setState({
-      name: 'Other Name'
-    });
-  }
-
-  actionEnterFixed(name) {
-    this.setState({
-      name: name
-    });
   }
 
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
-
-        <Button title="Function name" onPress={ this.actionEnter } />
-        <Button title="Fixed name" onPress={ () => this.actionEnterFixed('Fixed Name') } />
-
-        <Text style={{ fontSize: 23, color: 'red', textAlign: 'center' }}>
-          { this.state.name }
-        </Text>
+      <View style={ styles.area }>
+        <Text style={ styles.mainText }>Text 1</Text>
+        <Text style={ styles.centerText }>Text 2</Text>
+        <Text style={[ styles.mainText, styles.centerText ]}>Text 3</Text>
+        <Text>Text 4</Text>
       </View>
     );
   };
 }
+
+const styles = StyleSheet.create({
+  area: {
+    marginTop: 40,
+  },
+  mainText: {
+    fontSize: 25,
+    color: '#FF0000',
+  },
+  centerText: {
+    textAlign: 'center',
+  },
+});
 
 export default App;
