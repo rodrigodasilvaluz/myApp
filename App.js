@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
 class App extends Component {
 
@@ -7,15 +7,18 @@ class App extends Component {
     super(props);
     this.state = {
       name: '',
+      input: '',
     };
 
-    this.getName = this.getName.bind(this);
+    this.actionEnter = this.actionEnter.bind(this);
   }
 
-  getName(text) {
-    this.setState({
-      name: text,
-    });
+  actionEnter() {
+    if (this.state.input === '') {
+      alert('Typing your name!');
+      return;
+    }
+    this.setState({ name: this.state.input, });
   }
 
   render() {
@@ -26,8 +29,10 @@ class App extends Component {
           style={ styles.input }
           placeholder="Typing your name!"
           underlineColorAndroid="transparent"
-          onChangeText={ this.getName }
+          onChangeText={ (text) => this.setState({ input: text }) }
         />
+
+        <Button title="Enter" onPress={ this.actionEnter } />
 
         <Text style={ styles.text }>Wellcome { this.state.name }</Text>
 
