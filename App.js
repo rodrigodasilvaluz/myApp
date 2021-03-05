@@ -1,38 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'Rodrigo Luz'
-    };
-  }
-
   render() {
     return (
-      <View style={ styles.area }>
-        <Text style={ styles.mainText }>Text 1</Text>
-        <Text style={ styles.centerText }>Text 2</Text>
-        <Text style={[ styles.mainText, styles.centerText ]}>Text 3</Text>
-        <Text>Text 4</Text>
+      <View style={{ flex: 1, backgroundColor: '#ddd' }}>
+        <View style={{ height: 65, backgroundColor: '#ddd' }}></View>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}></View>
+        <View style={{ height: 65, backgroundColor: '#ddd' }}></View>
       </View>
     );
   };
 }
-
-const styles = StyleSheet.create({
-  area: {
-    marginTop: 40,
-  },
-  mainText: {
-    fontSize: 25,
-    color: '#FF0000',
-  },
-  centerText: {
-    textAlign: 'center',
-  },
-});
 
 export default App;
