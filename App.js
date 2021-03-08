@@ -3,57 +3,31 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  Image
+  ScrollView
 } from 'react-native';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      btnText: 'Abra o biscoito',
-      textPhrase: '',
-      img: require('./src/biscuitClose.png')
-    };
-
-    this.phrase = [
-      'Siga os bons e aprenda com eles.', 
-      'O bom-senso vale mais do que muito conhecimento.', 
-      'O riso é a menor distância entre duas pessoas.', 
-      'Deixe de lado as preocupações e seja feliz.',
-      'Realize o óbvio, pense no improvável e conquiste o impossível.',
-      'Acredite em milagres, mas não dependa deles.',
-      'A maior barreira para o sucesso é o medo do fracasso.'
-    ];
-
-    this.crackerBiscuit = this.crackerBiscuit.bind(this);
-  }
-
-  crackerBiscuit() {
-    const numRandom = Math.floor(Math.random() * this.phrase.length );
-    this.setState({
-      textPhrase: ' "' + this.phrase[numRandom] + '" ',
-      img: require('./src/biscuitOpen.png')
-    });
-  }
-
   render() {
     return (
       <View style={ styles.container }>
-        <Image
-          source={ this.state.img }
-          style={ styles.img }
-        />
 
-        <Text style={ styles.textPhrase }>{ this.state.textPhrase }</Text>
+        <ScrollView scrollEnabled={ true } showsVerticalScrollIndicator={ false }>
+          <View style={ styles.box1 }>
 
-        <TouchableOpacity style={ styles.btn } onPress={ this.crackerBiscuit }>
-          <View style={ styles.btnArea }>
-            <Text style={ styles.btnText }>{ this.state.btnText }</Text>
+            <ScrollView horizontal={ true } showsHorizontalScrollIndicator={ false }>
+              <View style={ styles.box5 }></View>
+              <View style={ styles.box6 }></View>
+              <View style={ styles.box7 }></View>
+              <View style={ styles.box8 }></View>
+            </ScrollView>
+
           </View>
-        </TouchableOpacity>
+          <View style={ styles.box2 }></View>
+          <View style={ styles.box3 }></View>
+          <View style={ styles.box4 }></View>
+        </ScrollView>
+
       </View>
     );
   };
@@ -62,40 +36,43 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center'
   },
-  img: {
-    width: 250,
+  box1: {
+    backgroundColor: 'red',
     height: 250
   },
-  textPhrase: {
-    fontSize: 20,
-    color: '#dd7b22',
-    margin: 30,
-    fontStyle: 'italic',
-    textAlign: 'center'
+  box2: {
+    backgroundColor: 'green',
+    height: 250
   },
-  btn: {
-    width: 250,
-    height: 50,
-    borderWidth: 2,
-    borderColor: '#dd7b22',
-    borderRadius: 25
+  box3: {
+    backgroundColor: 'yellow',
+    height: 250
   },
-  btnArea: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+  box4: {
+    backgroundColor: 'blue',
+    height: 250
   },
-  btnText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: '#dd7b22'
-  }
+  box5: {
+    backgroundColor: 'red',
+    height: 250,
+    width: 150
+  },
+  box6: {
+    backgroundColor: 'green',
+    height: 250,
+    width: 150
+  },
+  box7: {
+    backgroundColor: 'yellow',
+    height: 250,
+    width: 150
+  },
+  box8: {
+    backgroundColor: 'blue',
+    height: 250,
+    width: 150
+  },
 });
 
 export default App;
