@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList
 } from 'react-native';
+import People from './src/People';
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
         <FlatList
           data={ this.state.feed }
           keyExtractor={ (item) => item.id }
-          renderItem={ ({item}) => <Pessoa data={ item } /> }
+          renderItem={ ({item}) => <People data={ item } /> }
         />
 
       </View>
@@ -37,31 +38,10 @@ class App extends Component {
   };
 }
 
-class Pessoa extends Component {
-  render() {
-    return (
-      <View style={ styles.areaPeople }>
-        <Text style={ styles.textPeople }>{ this.props.data.name }</Text>
-        <Text style={ styles.textPeople }>{ this.props.data.age }</Text>
-        <Text style={ styles.textPeople }>{ this.props.data.email }</Text>
-      </View>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  areaPeople: {
-    backgroundColor: '#222',
-    height: 200,
-    marginBottom: 15
-  },
-  textPeople: {
-    color: '#fff',
-    fontSize: 20
-  }
 });
 
 export default App;
